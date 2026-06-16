@@ -18,7 +18,7 @@
 )
 
 (defalias
-  escctrl (tap-hold-press 100 100 esc (multi lctl (layer-while-held symbols)))
+  escctrl (tap-hold $tap-time $hold-time esc (layer-toggle symbols))
   a (tap-hold $tap-time $hold-time a lmet)
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)
