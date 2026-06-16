@@ -5,12 +5,16 @@
 
 (defsrc
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
-  caps a s d f j k l ;
+  caps e r y u i o p
+  a s d f h j k l ;
+  c v n m , .
+  spc
   fn
 )
 (defvar
   tap-time 150
   hold-time 200
+  duo-time 30
 )
 
 (defalias
@@ -23,17 +27,112 @@
   k (tap-hold $tap-time $hold-time k rsft)
   l (tap-hold $tap-time $hold-time l ralt)
   ; (tap-hold $tap-time $hold-time ; rmet)
+  spcl (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   fnl (tap-hold 200 200 fn (layer-toggle fn))
+
+  erly (layer-toggle er)
+  numly (layer-toggle nums)
+  symly (layer-toggle symbols)
+  che (chord er e)
+  chr (chord er r)
+  chc (chord cv c)
+  chv (chord cv v)
+  chd (chord fd d)
+  chf (chord fd f)
+  chj (chord jk j)
+  chk (chord jk k)
+  chu (chord ui u)
+  chi (chord ui i)
+  chm (chord mcomma m)
+  chcomma (chord mcomma comma)
 )
 
 (deflayer base
   brdn  brup  _    _    _    _   prev  pp  next  mute  vold  volu
-  @escctrl @a @s @d @f @j @k @l @;
+  @escctrl @che @chr y @chu @chi o p
+  @a @s @chd @chf h @chj @chk @l @;
+  @chc @chv n @chm @chcomma .
+  @spcl
   @fnl
 )
 
 (deflayer fn
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
-  @escctrl _ _ _ _ _ _ _ _
+  @escctrl _ _ _ _ _ _ _
+  _ _ _ _ _ _ _ _ _
+  _ _ _ _ _ _
+  spc
   fn
+)
+
+(deflayer nav
+  _    _    _    _    _    _   _     _   _    _     _     _
+  _    _    _    _    _    _   _     _
+  _    _    _    _    left down up    rght _
+  _    _    _    _    _    _
+  spc
+  fn
+)
+
+(deflayer er
+  _    _    _    _    _    _   _     _    _      _     _     _
+  _    _    _    _    S-eql rbrc _    _
+  _    _    _    _    _     _    _    _    _
+  _    _    nubs S-apos S-rbrc S-nubs
+  spc
+  fn
+)
+
+(deflayer nums
+  _    _    _    _    _    _   _     _    _    _     _     _
+  _    _    _    _    S-7  S-8  S-9  _
+  _    _    _    _    _    S-4  S-5  S-6  _
+  _    _    S-0  S-1  S-2  S-3
+  spc
+  fn
+)
+
+(deflayer symbols
+  _    _    _    _    _    _   _       _      _    _     _     _
+  _    _    _    S-eql RA-5   RA-min grv  S-grv
+  _    rbrc _    _     eql    5      min  3    4
+  _    _    1    RA-S-5 RA-S-min RA-S-l
+  spc
+  fn
+)
+
+(defchords er $duo-time
+  (e  ) e
+  (  r) r
+  (e r) @erly
+)
+
+(defchords cv $duo-time
+  (c  ) c
+  (  v) v
+  (c v) @numly
+)
+
+(defchords fd $duo-time
+  (f  ) @f
+  (  d) @d
+  (f d) @symly
+)
+
+(defchords jk $duo-time
+  (j  ) @j
+  (  k) @k
+  (j k) esc
+)
+
+(defchords ui $duo-time
+  (u  ) u
+  (  i) i
+  (u i) bspc
+)
+
+(defchords mcomma $duo-time
+  (m    ) m
+  (    comma) ,
+  (m   comma) ret
 )
