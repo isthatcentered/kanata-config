@@ -18,9 +18,7 @@
 )
 
 (defalias
-  escctrl (tap-hold $tap-time $hold-time esc (layer-toggle symbols))
-  taber (tap-hold $tap-time $hold-time tab (layer-toggle er))
-  shnum (tap-hold $tap-time $hold-time lsft (layer-toggle nums))
+  escctrl (tap-hold $tap-time $hold-time esc (layer-toggle nums))
   a (tap-hold $tap-time $hold-time a lmet)
   s (tap-hold $tap-time $hold-time s lalt)
   d (tap-hold $tap-time $hold-time d lsft)
@@ -51,18 +49,18 @@
 
 (deflayer base
   brdn  brup  _    _    _    _   prev  pp  next  mute  vold  volu
-  @taber @escctrl @che @chr y @chu @chi o p
+  tab @escctrl @che @chr y @chu @chi o p
   @a @s @chd @chf h @chj @chk @l @;
-  @shnum @chc @chv n @chm @chcomma .
+  lsft @chc @chv n @chm @chcomma .
   @spcl
   @fnl
 )
 
 (deflayer fn
   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10   f11   f12
-  @taber @escctrl _ _ _ _ _ _ _
+  tab @escctrl _ _ _ _ _ _ _
   _ _ _ _ _ _ _ _ _
-  @shnum _ _ _ _ _ _
+  lsft _ _ _ _ _ _
   spc
   fn
 )
