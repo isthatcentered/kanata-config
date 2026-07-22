@@ -1,6 +1,10 @@
 ;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
+  macos-dev-names-include (
+    "Apple Internal Keyboard / Trackpad"
+    "Keychron K2"
+  )
 )
 
 (defsrc
@@ -76,27 +80,27 @@
 
 (deflayer er
   _    _    _    _    _    _   _     _    _      _     _     _
-  _    _    _    _    _    S-eql rbrc _    _
+  _    _    _    _    _    S-min S-4  _    _
   _    _    _    _    _     _    _    _    _
-  _    _    _    nubs S-apos S-rbrc S-nubs
+  _    _    _    S-2  S-5   S-8  S-3
   spc
   fn
 )
 
 (deflayer nums
   _    _    _    _    _    _   _     _    _    _     _     _
-  _    _    _    _    _    S-7  S-8  S-9  _
-  _    _    _    _    _    S-4  S-5  S-6  _
-  _    _    _    S-0  S-1  S-2  S-3
+  _    _    _    _    _    7    8    9    _
+  _    _    _    _    _    4    5    6    _
+  _    _    _    0    1    2    3
   spc
   fn
 )
 
 (deflayer symbols
   _    _    _    _    _    _   _       _      _    _     _     _
-  _    _    _    _     S-eql RA-5   RA-min grv  S-grv
-  _    rbrc _    _     eql    5      min  3    4
-  _    _    _    1    RA-S-5 RA-S-min RA-S-l
+  _    _    _    _     S-min S-lbrc S-rbrc S-,  S-.
+  _    S-4  _    _     min   S-9    S-0    S-apos apos
+  _    _    _    S-7  lbrc  rbrc   S-bksl
   spc
   fn
 )
